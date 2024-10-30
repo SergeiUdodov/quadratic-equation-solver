@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  soap-web-app:
+    image: 5ergei/soap-web-app:latest
+    container_name: soap-web-app
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+  spring-boot-web-app:
+    image: 5ergei/spring-boot-web-app:latest
+    container_name: spring-boot-web-app
+    ports:
+      - "8081:8081"
+    networks:
+      - app-network
+    depends_on:
+      - soap-web-app
+    environment:
+      - SOAP_SERVICE_URL=http://soap-web-app:8080/quadratic-equation-soap-service/QuadraticEquationSolver?wsdl
+
+networks:
+  app-network:
+    driver: bridge
+
+

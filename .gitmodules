@@ -1,0 +1,6 @@
+[submodule "soap-web-app"]
+	path = soap-web-app
+	url = https://github.com/SergeiUdodov/soap-web-app.git
+[submodule "spring-boot-web-app"]
+	path = spring-boot-web-app
+	url = https://github.com/SergeiUdodov/spring-boot-web-app.git
